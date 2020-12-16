@@ -28,13 +28,12 @@ phases:
       - export AWS_EXPIRATION=$(echo ${CREDENTIALS} | jq -r '.Credentials.Expiration')
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
       - echo $JWT_SECRET > .env
-      - kubectl apply -f '@' JWT_SECRET
+      - kubectl apply -f simple-jwt-api.yml
       - printf '[{"name":"simple_jwt_api","imageUri":"%s"}]' $REPOSITORY_URI:$TAG > build.json
       - pwd
       - ls
 artifacts:
   files: build.json
 env:
-  parameter-store:
-    JWT_SECRET: JWT_SECRET
-    
+   parameter-store:
+     JWT_SECRET: JWT_SECRET
