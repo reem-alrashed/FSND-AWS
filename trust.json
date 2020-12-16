@@ -1,8 +1,7 @@
-{
-    "Version": "2012-10-17",
-    "Statement": [{
-      "Effect": "Allow",
-      "Action": ["sts:AssumeRole"],
-      "Resource": "arn:aws:iam::482344911452:user/reem"
+{ "Version": "2012-10-17",
+    "Statement":[{
+       "Effect": "Allow",
+       "Principal": {"AWS":"arn:aws:iam::482344911452:user/udacity"},
+       "Action": "sts:AssumeRole"
     }]
-   }
+    }
